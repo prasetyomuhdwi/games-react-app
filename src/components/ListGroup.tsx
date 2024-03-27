@@ -1,5 +1,15 @@
+import { MouseEvent } from 'react'
+
 function ListGroup() {
-  const items = ['test1', 'test2', 'test3', 'test4', 'test5']
+  let items = ['New York', 'San Francisco', 'Tokyo', 'London', 'Paris']
+
+  const getMessage = () => {
+    return items.length === 0 && <p>item found</p>
+  }
+
+  const handleClick = (event: MouseEvent) => {
+    console.log(event)
+  }
 
   return (
     // fragment
@@ -8,8 +18,9 @@ function ListGroup() {
         Test
       </h1>
       <ul className="w-56 menu bg-base-200 rounded-box">
+        {getMessage()}
         {items.map((item) => (
-          <li className="p-2" key={item}>
+          <li className="p-2" key={item} onClick={handleClick}>
             {item}
           </li>
         ))}
