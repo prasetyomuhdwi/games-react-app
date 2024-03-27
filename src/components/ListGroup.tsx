@@ -3,9 +3,10 @@ import { useState } from 'react'
 interface Props {
   items: string[]
   heading: string
+  onSelectedItem: (item: string) => void
 }
 
-function ListGroup({ items, heading }: Props) {
+function ListGroup({ items, heading, onSelectedItem }: Props) {
   const getMessage = () => {
     return items.length === 0 && <p>item found</p>
   }
@@ -27,6 +28,7 @@ function ListGroup({ items, heading }: Props) {
             key={item}
             onClick={() => {
               setSelectedIndex(index)
+              onSelectedItem(item)
             }}
           >
             <a className={selectedlndex === index ? 'active' : ''}>{item}</a>
