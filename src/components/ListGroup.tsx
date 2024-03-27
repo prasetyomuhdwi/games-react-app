@@ -1,8 +1,11 @@
 import { useState } from 'react'
 
-function ListGroup() {
-  let items = ['New York', 'San Francisco', 'Tokyo', 'London', 'Paris']
+interface Props {
+  items: string[]
+  heading: string
+}
 
+function ListGroup({ items, heading }: Props) {
   const getMessage = () => {
     return items.length === 0 && <p>item found</p>
   }
@@ -13,7 +16,7 @@ function ListGroup() {
     // fragment
     <>
       <h1 className="p-4 mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
-        Test
+        {heading}
       </h1>
 
       <ul className="w-56 menu bg-base-200 rounded-box">
