@@ -7,10 +7,6 @@ function ListGroup() {
     return items.length === 0 && <p>item found</p>
   }
 
-  const handleClick = (event: MouseEvent) => {
-    console.log(event)
-  }
-
   return (
     // fragment
     <>
@@ -20,7 +16,13 @@ function ListGroup() {
       <ul className="w-56 menu bg-base-200 rounded-box">
         {getMessage()}
         {items.map((item) => (
-          <li className="p-2" key={item} onClick={handleClick}>
+          <li
+            className="p-2"
+            key={item}
+            onClick={() => {
+              console.log(item)
+            }}
+          >
             {item}
           </li>
         ))}
